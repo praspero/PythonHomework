@@ -1,7 +1,8 @@
 from calculator.operators_constants import OPERATORS, ALL_OPERATORS, BINARY_OPERATORS, \
-                                           NUMBERS, COMPARISON_OPERATORS, CONSTANTS
+                                           NUMBERS, COMPARISON_OPERATORS, CONSTANTS, Operator
 from calculator.validation import validate_input_data
 from calculator.argparser import arg_parser
+import operator
 
 
 def prepare_expression_to_converting(input_formula):
@@ -20,7 +21,10 @@ def prepare_expression_to_converting(input_formula):
         if element == '^' and input_formula[index + 1].isalpha():
             input_formula = process_degree_operation(input_formula)
             break
-
+            
+    if input_formula.count("^") > 1:
+        input_formula = process_degree_priority(input_formula)
+            
     new_list = [input_formula[0]]
     for element in input_formula[1:]:
         if element == '-' and new_list[-1] == '-':
@@ -49,6 +53,25 @@ def prepare_expression_to_converting(input_formula):
         input_formula = process_fsum(input_formula)
 
     return input_formula
+
+
+def process_degree_priority(formula_with_several_degrees):
+    """Function add new degree
+    If we have more than one degree, then program add one more degree with high priority.
+    2^3^4 -> 2^3^^4, where '^^' has more priority then '^'
+    """
+
+    result_formula = []
+
+    for index, key in enumerate(formula_with_several_degrees.split('^')):
+        result_formula.append(key)
+        if index != len(formula_with_several_degrees.split('^')) - 1:
+            result_formula.append('^' * (index + 1))
+            OPERATORS.update({'^' * (index + 1): Operator(priority=4 + index, function=operator.pow)})
+            BINARY_OPERATORS.append('^' * (index + 1))
+            ALL_OPERATORS.append('^' * (index + 1))
+
+    return ''.join(result_formula)
 
 
 def process_degree_operation(formula_with_degree):
