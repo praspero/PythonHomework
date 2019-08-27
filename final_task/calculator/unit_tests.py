@@ -1,6 +1,6 @@
 import unittest
 import math
-import calculation
+import calculator.pycalc
 from math import e, pi, cos, sin, log
 
 
