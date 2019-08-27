@@ -40,7 +40,11 @@ COMPARISON_OPERATORS = {
     '>': Operator(priority=1, function=operator.gt)
 }
 
-ALL_OPERATORS = {'(', ')', 'fsum'}
-ALL_OPERATORS.update(CONSTANTS, OPERATORS)
+ALL_OPERATORS = ['(', ')', 'fsum']
+for key in CONSTANTS.keys():
+    ALL_OPERATORS.append(key)
+for key in OPERATORS.keys():
+    ALL_OPERATORS.append(key)
+
 
 NUMBERS = '0123456789.'
