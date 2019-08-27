@@ -21,10 +21,10 @@ def prepare_expression_to_converting(input_formula):
         if element == '^' and input_formula[index + 1].isalpha():
             input_formula = process_degree_operation(input_formula)
             break
-            
+
     if input_formula.count("^") > 1:
         input_formula = process_degree_priority(input_formula)
-            
+
     new_list = [input_formula[0]]
     for element in input_formula[1:]:
         if element == '-' and new_list[-1] == '-':
