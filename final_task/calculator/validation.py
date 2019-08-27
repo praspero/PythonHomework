@@ -17,6 +17,8 @@ def validate_input_data(input_data):
         return "ERROR: expression starts with operator"
     if re.search(r'\d\s\d', input_data):
         return "ERROR: 2 digits in a row"
+    if input_data in OPERATORS:
+        return "ERROR: no function arguments"
     tokens = re.findall(r'[a-z][a-z,0-9]+', input_data)
     for token in tokens:
         if token not in ALL_OPERATORS:
