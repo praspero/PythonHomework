@@ -1,6 +1,7 @@
-from operators_constants import OPERATORS, ALL_OPERATORS, BINARY_OPERATORS, NUMBERS, COMPARISON_OPERATORS, CONSTANTS
-from validation import validate_input_data
-from argparser import arg_parser
+from calculator.operators_constants import OPERATORS, ALL_OPERATORS, BINARY_OPERATORS, \
+                                           NUMBERS, COMPARISON_OPERATORS, CONSTANTS
+from calculator.validation import validate_input_data
+from calculator.argparser import arg_parser
 
 
 def prepare_expression_to_converting(input_formula):
