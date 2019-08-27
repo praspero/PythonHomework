@@ -344,7 +344,7 @@ def process_comparison_operators(formula_with_comparison):
 def main():
     user_input = arg_parser()
     print(calculate_reversed_polish_notation(user_input))
-    
-    
+
+
 if __name__ == '__main__':
     main()
