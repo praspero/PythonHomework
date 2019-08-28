@@ -1,7 +1,7 @@
 import re
 from calculator.operators_constants import (
-    OPERATORS, 
-    ALL_OPERATORS, 
+    OPERATORS,
+    ALL_OPERATORS,
     BINARY_OPERATORS
 )
 
