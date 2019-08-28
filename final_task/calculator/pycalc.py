@@ -349,11 +349,8 @@ def calculate_reversed_polish_notation(input_expression):
                     return "ERROR: Value Error"
         else:
             stack.append(element)
-    precesion = 0.000001
-    if abs(stack[0] - round(stack[0])) < precesion:
-        return int(stack[0])
-    else:
-        return stack[0]
+
+    return int(stack[0]) if stack[0] == int(stack[0]) else stack[0]
 
 
 def process_comparison_operators(formula_with_comparison):
