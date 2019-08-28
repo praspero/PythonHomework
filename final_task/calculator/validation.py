@@ -1,5 +1,9 @@
 import re
-from calculator.operators_constants import OPERATORS, ALL_OPERATORS, BINARY_OPERATORS
+from calculator.operators_constants import (
+    OPERATORS, 
+    ALL_OPERATORS, 
+    BINARY_OPERATORS
+)
 
 
 def validate_input_data(input_data):
