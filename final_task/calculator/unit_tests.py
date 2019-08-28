@@ -1,7 +1,13 @@
 import unittest
 import math
 import calculator.pycalc
-from math import e, pi, cos, sin, log
+from math import (
+    e, 
+    pi, 
+    cos, 
+    sin, 
+    log
+)
 
 
 class ErrorTest(unittest.TestCase):
