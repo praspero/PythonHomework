@@ -7,19 +7,23 @@ def validate_input_data(input_data):
         return "ERROR: no input data"
     if input_data.count("(") != input_data.count(")"):
         return "ERROR: brackets aren't balanced"
-    if re.search(r'[*,/,^,%,<,>,<=,>=,!=,==][*,/,^,%,<,>]', input_data):
+    two_operators_in_a_row = r'[*,/,^,%,<,>,<=,>=,!=,==][*,/,^,%,<,>]'
+    if re.search(two_operators_in_a_row, input_data):
         return "ERROR: 2 operators in a row"
-    if re.search(r'[*,/,^,%,<,>,<=,>=,!=,==]\s[*,/,^,%,<,>,<=,>=,!=,==]', input_data):
+    two_operators_in_a_row_with_whitespace = r'[*,/,^,%,<,>,<=,>=,!=,==]\s[*,/,^,%,<,>,<=,>=,!=,==]'
+    if re.search(two_operators_in_a_row_with_whitespace, input_data):
         return "ERROR: 2 operators in a row"
     if input_data[-1] in OPERATORS:
         return "ERROR: expression ends with operator"
     if input_data[0] in '^%*/= |\\':
         return "ERROR: expression starts with operator"
-    if re.search(r'\d\s\d', input_data):
+    two_digits_with_whitespace = r'\d\s\d'
+    if re.search(two_digits_with_whitespace, input_data):
         return "ERROR: 2 digits in a row"
     if input_data in OPERATORS:
         return "ERROR: no function arguments"
-    tokens = re.findall(r'[a-z][a-z,0-9]+', input_data)
+    function_names = r'[a-z][a-z,0-9]+'
+    tokens = re.findall(function_names, input_data)
     for token in tokens:
         if token not in ALL_OPERATORS:
             return "ERROR: unknown function name" + token
