@@ -2,10 +2,10 @@ import unittest
 import math
 import calculator.pycalc
 from math import (
-    e, 
-    pi, 
-    cos, 
-    sin, 
+    e,
+    pi,
+    cos,
+    sin,
     log
 )
 
