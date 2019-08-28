@@ -1,5 +1,12 @@
-from calculator.operators_constants import OPERATORS, ALL_OPERATORS, BINARY_OPERATORS, \
-                                           NUMBERS, COMPARISON_OPERATORS, CONSTANTS, Operator
+from calculator.operators_constants import (
+  OPERATORS,
+  ALL_OPERATORS,
+  BINARY_OPERATORS,
+  NUMBERS,
+  COMPARISON_OPERATORS,
+  CONSTANTS,
+  Operator
+)
 from calculator.validation import validate_input_data
 from calculator.argparser import parse_args
 import operator
